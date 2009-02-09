@@ -92,26 +92,7 @@
 
 (cua-mode t)  ;; oh damn if only there was a MUA moda
 
-(add-to-list 'load-path "~/.emacs.d/weblogger")
-(require 'weblogger)
-(custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- '(cua-mode t nil (cua-base))
- '(display-battery-mode t)
- '(display-time-mode t)
- '(fringe-mode 0 nil (fringe))
- '(transient-mark-mode t)
- '(weblogger-config-alist (quote (("Loosely Typed" ("user" . "jcanady") ("server-url" . "http://innova-partners.com/blog/xmlrpc.php") ("weblog" . "1")) ("joncanady.com" ("user" . "jonc") ("server-url" . "http://joncanady.com/xmlrpc.php") ("weblog" . "1"))))))
-(custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- )
-
+(require 'flymake)
 (require 'flymake-php)
 (add-hook 'php-mode-user-hook 'flymake-php-laod)
 
@@ -243,7 +224,7 @@ attributes are specified then they are only included in the opening tag."
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on) 
 
 ;; speedbar needs to recognize PHP files
-(speedbar)
+(speedbar t)
 (speedbar-add-supported-extension ".php") ; not necessarily required
 (speedbar-add-supported-extension ".phtml") ; for Zend Views
 (add-hook 'php-mode-user-hook 'semantic-default-java-setup)
