@@ -241,3 +241,14 @@ attributes are specified then they are only included in the opening tag."
 
 ;; colors in shell-mode
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on) 
+
+;; speedbar needs to recognize PHP files
+(speedbar)
+(speedbar-add-supported-extension ".php") ; not necessarily required
+(speedbar-add-supported-extension ".phtml") ; for Zend Views
+(add-hook 'php-mode-user-hook 'semantic-default-java-setup)
+(add-hook 'php-mode-user-hook
+         (lambda ()
+           (setq imenu-create-index-function
+                 'semantic-create-imenu-index)
+           ))
